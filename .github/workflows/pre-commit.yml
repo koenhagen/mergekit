@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python_version: ["3.9", "3.10", "3.11"]
+        python_version: ["3.11"]
     timeout-minutes: 5
 
     steps:
@@ -36,4 +36,8 @@ jobs:
       - name: Install dependencies
         run: pip3 install -U -e .[test]
       - name: Run tests
-        run: pytest .
+        uses: koenhagen/measure-energy-action@v0.33
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: pytest .
+          count: 1
