@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pip3 install -U -e .[test]
       - name: Run tests
-        uses: koenhagen/measure-energy-action@v0.20
+        uses: koenhagen/measure-energy-action@v0.33
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: pytest .
